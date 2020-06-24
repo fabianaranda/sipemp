@@ -720,6 +720,7 @@ li {
 
 .header-uper .logo {
   float: left;
+  margin-inline-start: -150px;
 }
 
 .header-uper .right-side {
@@ -864,7 +865,7 @@ li {
 
 .navbar .navbar-nav li a {
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 14.5px;
+  font-size: 17.5px;
   color: #ffffff;
   text-transform: uppercase;
   padding: 25px 20px;

@@ -70,7 +70,7 @@
 	 <div class="top_right_bar">
 	 
           <div class="user_admin dropdown"> <a href="javascript:void(0);" data-toggle="dropdown">
-		  <img src="images/user.pn" /><span class="user_adminname">Traductor </span> <b class="caret"></b> </a>
+		  <img src="" /><span class="user_adminname">Traductor </span> <b class="caret"></b> </a>
           <ul class="dropdown-menu">
             <div class="top_pointer"></div>
             <li> <a href="#"><i class="fa fa-user"></i> Españo</a> </li>
@@ -81,7 +81,7 @@
         </div>
 		
         <div class="user_admin dropdown"> <a href="javascript:void(0);" data-toggle="dropdown">
-		<img src="images/user.pn" /> {{ Auth::user()->name }}</span> <b class="caret"></b> </a>
+		<img src="" /> {{ Auth::user()->name }}</span> <b class="caret"></b> </a>
           <ul class="dropdown-menu">
             <div class="top_pointer"></div>
             <li> <a href="#"><i class="fa fa-user"></i>Normas del Sistema</a> </li>
