@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class plancondiaroma extends Model
+class plantaAromaticas extends Model
 {
     public $timestamps = false;	
-        public $table = "plantas_codimentarias"; 
+        public $table = "plantasaromaticas"; 
          
     
         /**
@@ -19,6 +19,7 @@ class plancondiaroma extends Model
          */
         
          protected $fillable = [
-            'id', 'nombre_codimentarias', 
+            'id', 'nombre_aromaticass', 
         ];
 }
+

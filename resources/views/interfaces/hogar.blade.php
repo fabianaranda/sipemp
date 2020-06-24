@@ -756,74 +756,105 @@
                <div class="col-md-3 col-lg-3">
            
             <div class="titulo_informacion">
-             <h1>Condimentarías y aromáticas</h1>
+             <h1>Condimentarías </h1>
 
            </div>
-            <ul class="">
-           
-            <li>
-             <label>
-             
-       
-              </label>
-               </li>
-           
-               </ul>
+             <ul class="">
+			
+		          @foreach($plancondiaroma as $plantas_codimentarias)
+	             <li>
+	              <label>
+	               {{ Form::checkbox('plancondiaroma[]', $plantas_codimentarias->id, null) }}
+	               {{ $plantas_codimentarias->nombre_codimentarias}}
+	        
+	               </label>
+	                </li>
+	              @endforeach
+                  </ul>
+  
 
         </div>
       
                <div class="col-md-3 col-lg-3">
             <div class="titulo_informacion">
-             <h1> medicinales</h1>
+             <h1>  Aromáticas </h1>
 
            </div>
-            <ul class="">
-         
-            <li>
-             <label>
-             
-              </label>
-               </li>
-             
-               </ul>
+             <ul class="">
+			
+		          @foreach($plantaAromaticas as $plantaAromaticas)
+	             <li>
+	              <label>
+	               {{ Form::checkbox('plancondiaroma[]', $plantas_codimentarias->id, null) }}
+	               {{ $plantaAromaticas->nombre_aromáticas}}
+	        
+	               </label>
+	                </li>
+	              @endforeach
+                  </ul>
          
 
          </div>
                 <div class="col-md-3 col-lg-3">
             <div class="titulo_informacion">
-             <h1>Nutricionales</h1>
+             <h1>medicinales </h1>
 
            </div>
-            <ul class="">
-           
-            <li>
-             <label>
-             
-       
-              </label>
-               </li>
-            
-               </ul>
+                <ul class="">
+			
+		          @foreach($plantaMedicinal as $plantaMedicinal)
+	             <li>
+	              <label>
+	               {{ Form::checkbox('plancondiaroma[]', $plantaMedicinal->id, null) }}
+	               {{ $plantaMedicinal->nombre_medicinales}}
+	        
+	               </label>
+	                </li>
+	              @endforeach
+                  </ul>
 
         </div>
 
             <div class="col-md-3 col-lg-3">
             <div class="titulo_informacion">
-             <h1>espirituales</h1>
+             <h1> Nutricionales- espirituales</h1>
 
            </div>
-            <ul class="">
-           
-            <li>
-             <label>
-            
-       
-              </label>
-               </li>
-            
-               </ul>
+             <ul class="">
+			
+		          @foreach($plantaNutricional as $plantaNutricional)
+	             <li>
+	              <label>
+	               {{ Form::checkbox('plancondiaroma[]', $plantaNutricional->id, null) }}
+	               {{ $plantaNutricional->nombre_nutricionaless}}
+	        
+	               </label>
+	                </li>
+	              @endforeach
+                  </ul>
 
        </div>  
+	   
+	       <div class="col-md-3 col-lg-3">
+            <div class="titulo_informacion">
+             <h1> Nutricionales- espirituales</h1>
+
+           </div>
+            
+                   <ul class="">
+			
+		          @foreach($plantaEspirituales as $plantaEspirituales)
+	             <li>
+	              <label>
+	               {{ Form::checkbox('plancondiaroma[]', $plantaEspirituales->id, null) }}
+	               {{ $plantaEspirituales->nombre_espirituales}}
+	        
+	               </label>
+	                </li>
+	              @endforeach
+                  </ul>
+       </div>  
+
 
 
 
@@ -832,7 +863,7 @@
       
       </div>
    
-   ________________________
+   
       
           ---------------
 		 

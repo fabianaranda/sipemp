@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use DB;
 use App\economia_familia ;
 Use App\comidas_propias;
+Use App\plancondiaroma ;
+Use App\plantaAromaticas;  
+Use App\plantaMedicinal;  
+
+Use App\plantaNutricional;  
+Use App\plantaEspirituales;
 
 class DireccionHogarController extends Controller
 {
@@ -17,10 +23,16 @@ class DireccionHogarController extends Controller
         ///leer los datos comidad propias y economia  de la familia misak, desde BD  tabla  comidas propias y tabla economia misak 
         $economia  = economia_familia::get();
         $comida  = comidas_propias::get();
-        
+        $plancondiaroma  =  plancondiaroma::get();
+        $plantaAromaticas  =  plantaAromaticas::get();
+        $plantaMedicinal  =  plantaMedicinal::get(); 
+
+        $plantaNutricional  =  plantaNutricional::get();
+
+        $plantaEspirituales =  plantaEspirituales::get();
        // return view('interfaces.hogar',compact('departamento','id_vivienda'));
        //variables  de la tabalas, deprtamento, economia, comida
-       return view('interfaces.hogar',compact('departamento','economia','comida'));
+       return view('interfaces.hogar',compact('departamento','economia','comida','plancondiaroma','plantaAromaticas','plantaMedicinal','plantaNutricional','plantaEspirituales'));
     }
 
 
