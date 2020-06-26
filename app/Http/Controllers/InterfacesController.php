@@ -65,7 +65,7 @@ class InterfacesController extends Controller
 
 
 
-    public  function interfas_personas ($id_hogar)
+    /*public  function interfas_personas ($id_hogar)
     {
       try {
          $datos = Personas::where('hogar_id',$id_hogar)->get();
@@ -74,9 +74,62 @@ class InterfacesController extends Controller
          return ['validate'=>false,'msj'=>'Usted no tiene acceso a este contenido'];
     }
 }
-
-
+*/
+/*
+  public  function interfas_personas ($id_hogar)
+    {
+      
+         $Personas = Personas::where('hogar_id',$id_hogar)->get();
+        //return view('interfaces.personas',compact('datos'));
+            return Datatables::of($Personas)
+      ->addColumn('action', function ($user) {
+        // estado   de censado ,  -- ingreso de informacion personal
+        $btnEstado = "";
+        if($user->estado ==1){
+          //boton  bt estado 
+         $btnEstado ='<a href="/listtar-persons/'.$user->id.'/0" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-remove"></i> Informacion Persona</a>';
+            // si no  pregunto 
+        }else if($user->estado ==0){
+          // que me pase en 
+          $btnEstado ='<a href="/listtar-persons/'.$user->id.'/1" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-ok"></i> Informacion Persona</a>';
     
+        }
+        
+         /// concatenamos  la bariable tbEstado para que returne
+        return $btnEstado.'<a href="/Informacion_Persona/'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Editr</a>';
+       })
+        // returna estado 1 
+       ->editColumn('estado', function ($user) {
+        return  $user->estado == 1?"Sin Censar":"Censado"; 
+       })
+       
+      ->make(true);
+      //de lo contrario retorna 
+      return view('Ingresar_Persona');
+    }
+        // funcion cambiar estado  recibe dos parametros , idi y estado 
+    public function cambiar_estado($id,$estado  ){
+      // busco el oroducto 
+      $Personas = Personas::find($id);
+     
+      if($Personas ==null){
+        // hacer la notificacion que no se encontro el producto 
+        return redirect('Ingresar_Person');
+      }
+     /// estado camvielo por estado que llego 
+
+     // notificamos y redireccionamos a producto 
+      $Personas->update(["estado"=>$estado]);
+
+      return redirect('Informacion_Persona/');
+    }
+*/
+
+
+     
+        
+
+
     public  function interfas_informmacion_persona($id_persona)
     {
         $datos = Personas::findOrFail($id_persona);

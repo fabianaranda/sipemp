@@ -17,6 +17,6 @@ class Personas extends Model
          */
         
          protected $fillable = [
-            'documento_id', 'hogar_id', 
+            'documento_id', 'hogar_id','estado', 
         ];
 }

@@ -78,12 +78,15 @@ Route::get('get-sector-list','DireccionViviendaHogarController@getsector');
 |--------------------------------------------------------------------------
 |                            CENSO HOGAR    
 |
-*/ 
-Route::get('Hogar','InterfacesController@interfas_hogar')->name ('Hogar');
+*/ Route::get('Hogar','InterfacesController@interfas_hogar')->name ('Hogar');
+Route::get('Hogar','DireccionHogarController@direccion_Hogar');
 
 Route::POST('Vivienda-Hogar/Guardado', 'HogarController@create_hogar');
 
-Route::get('Hogar','DireccionHogarController@direccion_Hogar');
+
+
+
+
 Route::get('get-municipio-list','DireccionHogarController@getmunicipio');
 Route::get('get-resguardo-list','DireccionHogarController@getresguardo');
 Route::get('get-zona-list','DireccionHogarController@getzona');
@@ -93,10 +96,10 @@ Route::get('get-sector-list','DireccionHogarController@getsector');
 |--------------------------------------------------------------------------
 |                            BUSCAR CODIGO DEL HOGAR    
 |
-*/ 
+*///Route::get('Hogar', 'BuscarCodigoViviendaController@buscar_codigo_vivienda');
 
 
-//Route::any('Hogar', 'BuscarcarCodigoViviendaController@buscar_codigo_vivienda');
+
 
 //Route::get('Hogar', 'EconomiaComidaMisakController@create')->name('Hogar');
 
@@ -420,6 +423,18 @@ Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
 
 Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit');
 ////->middleware('permission:users.edit');
+
+
+Route::get('listtar-personas', function () {
+    return view('Ingresar_Persona');
+});
+
+
+Route::get('listtar-persons', 'datatablecontroller@getdate')->name('listtar-persons');
+
+Route::get('/listtar-persons/estado/{id}/{estado}', 'datatablecontroller@cambiar_estadoPersona');
+
+
 
 });
 

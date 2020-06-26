@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use DB;
 use App\economia_familia ;
@@ -26,13 +26,24 @@ class DireccionHogarController extends Controller
         $plancondiaroma  =  plancondiaroma::get();
         $plantaAromaticas  =  plantaAromaticas::get();
         $plantaMedicinal  =  plantaMedicinal::get(); 
-
         $plantaNutricional  =  plantaNutricional::get();
-
         $plantaEspirituales =  plantaEspirituales::get();
        // return view('interfaces.hogar',compact('departamento','id_vivienda'));
        //variables  de la tabalas, deprtamento, economia, comida
-       return view('interfaces.hogar',compact('departamento','economia','comida','plancondiaroma','plantaAromaticas','plantaMedicinal','plantaNutricional','plantaEspirituales'));
+       
+       $q = Input::get ( 'q' );
+       $Personas = DB:: table('personas')
+    
+        ->where ('personas.docomento_persona', 'LIKE', '%' . $q . '%' )->get ();
+        if (count ( $Personas) > 0)
+         // return view ( 'interfaces.hogar',compact('Personas','departamento','economia','comida','plancondiaroma','plantaAromaticas','plantaMedicinal','plantaNutricional','plantaEspirituales'))->withDetails ( $Personas)->withQuery ( $q );
+         // else
+          
+         // return view ( 'interfaces.hogar' )->withMessage ( '¡La persona no se encuentra en el censo Poblaciona Misak!!' );
+
+         return view('interfaces.hogar',compact('Personas','departamento','economia','comida','plancondiaroma','plantaAromaticas','plantaMedicinal','plantaNutricional','plantaEspirituales'))->withDetails ( $Personas)->withQuery ( $q );
+
+         
     }
 
 

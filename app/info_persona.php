@@ -17,6 +17,6 @@ class  info_persona extends Model
          */
         
          protected $fillable = [
-            'religion', 'persona_id', 
+            'religion', 'persona_id','estado', 
         ];
 }

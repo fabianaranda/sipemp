@@ -78,11 +78,11 @@
            	<div class="container clearfix">					
 					<div class="col-sm-4 topmargin-sm">
 					
-				     <form id=""  class="form_cunsulta" name="form" action="/hogar" method="POST" role="Informacion_General" class="pocicion_formulario">
+				     <form id="buscar"  class="form_cunsulta"  name="form" action="/hogar" method="POST" role="Informacion_General" class="pocicion_formulario">
 				     	      {{ csrf_field() }}
       						<div id="consulta_externa">
 								<label>Ingresar el número de identificación   de la persona </label><br>
-								<input  id="nuip" name="q" class="form-control"  placeholder="Digíte el número sin puntos ni comas" title="El nùmero de cèdula debe ser de 2 a 10 dígitos" value=""  style="">
+								<input    id="q" name="q" class="form-control"  placeholder="Digíte el número sin puntos ni comas" title="El nùmero de cèdula debe ser de 2 a 10 dígitos" value=""  style="">
 
 								<span class="animated fadeIn"></span>
 
@@ -1035,7 +1035,8 @@
             </div>
         
     </footer>
-	
+  
+     
 	
     <script type="text/javascript">
     $('#departamento').change(function(){
@@ -1168,6 +1169,22 @@
     }
         
    });
+// buscar codigo vivienda
+$(function()
+{
+	$('#buscar').submit(function(e){
+		e.preventDefault();
+		$.ajax({
+			url:$(this).attr('action'),
+			data:$(this).serialize(),
+			type:$(this).attr('method'),
+			success:function(data)
+			{
+              
+			}
+		})
+	})
+})
    
    
 </script>

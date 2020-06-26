@@ -18,7 +18,7 @@
   <!-- Styles -->
  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
  <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-
+ <link href="{{ asset('plugin/datatables/datatables.min.css') }}" rel="stylesheet">
   <!--Favicon-->
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   
@@ -274,6 +274,9 @@
 <script src="{{ asset('plugins/bootstrap.min.js') }}" defer></script>
 
 <script src="{{ asset('js/sweetalert2@9.js') }}" defer></script>
+
+<script src="{{ asset('plugin/datatables/datatables.min.js') }}" defer></script>
+ @yield('script')
 
 </body>
 </html>
