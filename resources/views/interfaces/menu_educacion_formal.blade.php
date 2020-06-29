@@ -158,9 +158,14 @@
 
                                                 <div class="pull-right botones-pies">
                                                
-                                                <a onclick="  title="Guardar Educación" class="btn btn-success btn-xs" > Terminar Proceso del censo </a>
+                                                <a onclick="  title="Guardar Educación" class="btn btn-success btn-xs" >  </a>
                                                 
-												
+                                                <a href="{{ route('Resumen-Censo-Personal', $datos->id) }}" 
+                                                       class="btn btn-sm btn-default" style="background-color:#1b9e1d;border: 0px !important;color:white;"> <i class="fa fa-eye" aria-hidden="true"></i>
+                                                       SIGUENTE 
+              
+                                                                            </a>
+                                                                            
                      												
                                             </div>
                                          

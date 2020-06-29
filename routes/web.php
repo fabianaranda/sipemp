@@ -137,6 +137,11 @@ Route::post('Ingresar_personas', 'PersonasController@create_grupo_familiar');
 |
 */
 
+Route::get('Personas', function () {
+    return view('interfaces.personas');
+});
+
+
 Route::get('Personas/{id_hogar}','InterfacesController@interfas_personas')->name ('Personas');
 
 
@@ -145,8 +150,10 @@ Route::get('Personas/{id_hogar}','InterfacesController@interfas_personas')->name
 |                        CENSO  INFORMACION PERSONA Misak  INGRESAR  a cada unu de los integrantes de la familia     
 |
 */ Route::get('Informacion_Persona/{id_persona}','InterfacesController@interfas_informmacion_persona')->name ('Informacion_Persona');
-	
-Route::POST('info_persona/Guardado', 'InfoformacionPersonaController@create_informacion_persona');
+    // ruta para actualizar estado mediante js
+Route::get('changeStatus', 'InterfacesController@changeStatus');
+/// ruta para guardar informacion persona 
+  Route::POST('info_persona/Guardado', 'InfoformacionPersonaController@create_informacion_persona');
 
 /*
 |--------------------------------------------------------------------------
@@ -166,7 +173,7 @@ Route::get('Menu-Educacion-Formal/{id_persona}','InterfacesController@interfas_m
 Route::POST('Educacion_Formal/Guardado', 'EducacionPersonaController@create_educacion_escuale_colegio');
 
 
-Route::get('Educacion_Formal','InterfacesController@interfas_educacion_formal')->name ('Educacion_Formal');
+//Route::get('Educacion_Formal','InterfacesController@interfas_educacion_formal')->name ('Educacion_Formal');
 
 Route::get('Educacion_Formal/{id_persona}','ColeEscueDireccionController@direccion_escue_cole')->name ('Educacion_Formal');
 
@@ -195,7 +202,22 @@ Route::get('get-sede-list','ColeEscueDireccionController@getsede');
  Route::get('get-tipoE-list','ColeEscueDireccionController@gettipoE');
 
 
+ /*                                                                       |   
+|                                                                         |
+|--------------------------------resumen del certificado por persona -----------------------|
+|                                                                         |
+|                                                                         | 
+*/  
+Route::get('Resumen-Censo-Personal/{id_persona}','InterfacesController@interfas_resomen_censo')->name ('Resumen-Censo-Personal');
 
+
+ /*                                                                       |   
+|                                                                         |
+|--------------------------------CERTIFICADO CENSO POBLACIONAL-----------------------|
+|                                                                         |
+|                                                                         | 
+*/  
+Route::get('Certificado-Censo/{hogar_id}','InterfacesController@interfas_certifcado_censo_familiar')->name ('Certificado-Censo');
 
 
 
@@ -426,6 +448,7 @@ Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit');
 
 
 Route::get('listtar-personas', function () {
+
     return view('Ingresar_Persona');
 });
 
@@ -434,6 +457,8 @@ Route::get('listtar-persons', 'datatablecontroller@getdate')->name('listtar-pers
 
 Route::get('/listtar-persons/estado/{id}/{estado}', 'datatablecontroller@cambiar_estadoPersona');
 
+//Route::get('listtar-persons', 'datatablecontroller@getdate')->name('listtar-persons');
+//Route::get('/listtar-persons/estado/{id}/{estado}', 'datatablecontroller@cambiar_estadoPersona');
 
 
 });

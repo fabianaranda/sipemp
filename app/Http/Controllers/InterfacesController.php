@@ -12,6 +12,7 @@ use App\hogar;
 use App\Role;
 Use App\limitaciones_fisinas;
 use DB;
+use DataTables;
 
 class InterfacesController extends Controller
 {
@@ -65,50 +66,37 @@ class InterfacesController extends Controller
 
 
 
-    /*public  function interfas_personas ($id_hogar)
+    public  function interfas_personas ($id_hogar)
     {
-      try {
+     
          $datos = Personas::where('hogar_id',$id_hogar)->get();
+
+       // $datos = DB:: table('info_persona')
+        
+        // ->join('personas', 'personas.id', '=', 'info_persona.persona_id')
+        // ->where('personas.hogar_id',$id_hogar)->get();
+
         return view('interfaces.personas',compact('datos'));
-     } catch (\Throwable $th) {
-         return ['validate'=>false,'msj'=>'Usted no tiene acceso a este contenido'];
-    }
+
+    
 }
-*/
+
+
 /*
   public  function interfas_personas ($id_hogar)
     {
       
          $Personas = Personas::where('hogar_id',$id_hogar)->get();
-        //return view('interfaces.personas',compact('datos'));
-            return Datatables::of($Personas)
-      ->addColumn('action', function ($user) {
-        // estado   de censado ,  -- ingreso de informacion personal
-        $btnEstado = "";
-        if($user->estado ==1){
-          //boton  bt estado 
-         $btnEstado ='<a href="/listtar-persons/'.$user->id.'/0" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-remove"></i> Informacion Persona</a>';
-            // si no  pregunto 
-        }else if($user->estado ==0){
-          // que me pase en 
-          $btnEstado ='<a href="/listtar-persons/'.$user->id.'/1" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-ok"></i> Informacion Persona</a>';
-    
-        }
+         return Datatables::of($Personas);
+         
+         
         
-         /// concatenamos  la bariable tbEstado para que returne
-        return $btnEstado.'<a href="/Informacion_Persona/'.$user->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Editr</a>';
-       })
-        // returna estado 1 
-       ->editColumn('estado', function ($user) {
-        return  $user->estado == 1?"Sin Censar":"Censado"; 
-       })
-       
-      ->make(true);
+        
       //de lo contrario retorna 
-      return view('Ingresar_Persona');
+        return view('interfaces.personas');
     }
         // funcion cambiar estado  recibe dos parametros , idi y estado 
-    public function cambiar_estado($id,$estado  ){
+    /*public function cambiar_estado($id,$estado  ){
       // busco el oroducto 
       $Personas = Personas::find($id);
      
@@ -126,25 +114,43 @@ class InterfacesController extends Controller
 */
 
 
-     
-        
-
-
     public  function interfas_informmacion_persona($id_persona)
     {
+        $users = Personas::where('id',$id_persona)->get();
+
+       // $users = Personas::get();
+       // return view('interfaces.informmacion_persona',compact('users'));
+
         $datos = Personas::findOrFail($id_persona);
+       // $users = Personas::findOrFail($id_persona);
+       // $dato = DB:: table('info_persona')
+        //->join('personas','personas.id', '=','info_persona.persona_id')
+         //->where('personas.id',$id_persona)->get();
+
+         //$users = User::findOrFail($id_persona);
+         //return view('users',compact('users'));
+
 
         $profecion = DB::table("profecion")->pluck("nombre","id");
 
         $idiomas  =  idiomas::get();
         $limitaciones_fisinas  =  limitaciones_fisinas::get();
          
-        $carnet_salud = DB::table("carnet_salud")->pluck("nombre","id");
-        $enfermedades = DB::table("enfermedades")->pluck("nombre","id");
+         $carnet_salud = DB::table("carnet_salud")->pluck("nombre","id");
+         $enfermedades = DB::table("enfermedades")->pluck("nombre","id");
 
-        return view('interfaces.informmacion_persona',compact('datos','profecion','idiomas','limitaciones_fisinas','carnet_salud','enfermedades'));
+        return view('interfaces.informmacion_persona',compact('users','datos','profecion','idiomas','limitaciones_fisinas','carnet_salud','enfermedades'));
     }
+    
 
+    public function changeStatus(Request $request)
+    {
+        $user = Personas::find($request->user_id);
+        $user->status = $request->status;
+        $user->save();
+  
+      return response()->json(['success'=>'Status change successfully.']);
+    }
 
 
 
@@ -164,16 +170,57 @@ class InterfacesController extends Controller
     
 
     
-    public  function interfas_educacion_superior( $id_persona)
+    public  function interfas_educacion_superior( $id_persona )
     { 
+        $id_hogar = info_persona::findOrFail($id_persona);
         $datos = info_persona::findOrFail($id_persona);
        
-        return view('interfaces.educacion_superior',compact('datos'));
+        return view('interfaces.educacion_superior',compact('datos','id_hogar'));
     }
 
 
 
+       /// resumn del censo porblacional por persona 
+    public  function interfas_resomen_censo($id_persona)
+    {
+        $datos = DB:: table('info_persona')
+       
+        ->join('personas', 'info_persona.persona_id', '=', 'personas.id')
+        ->join('hogar_p', 'personas.hogar_id', '=', 'hogar_p.id')
+        ->join('sector', 'hogar_p.codigo_sector', '=', 'sector.codigo_sector')
+        ->join('vereda', 'sector.codigo_vereda', '=', 'vereda.codigo_vereda')
+       ->join('zona', 'vereda.codigo_zona', '=', 'zona.codigo_zona')
+       ->join('resguardo', 'zona.codigo_resguardo', '=', 'resguardo.codigo_resguardo')
+       ->join('municipio', 'resguardo.codigo_municipio', '=', 'municipio.codigo_municipio')
+       ->join('departamento', 'municipio.codigo_departamento', '=', 'departamento.codigo_departamento')
+       // ->where ('personas.docomento_persona')->get ();
+        ->where('personas.id',$id_persona)->get();
 
+        //return view('interfaces.personas',compact('datos'));
+
+       return  view('interfaces.resumen_censo',compact('datos'));
+    }
+
+     /// certificado censo familiar  
+    public  function interfas_certifcado_censo_familiar($hogar_id)
+    {
+        $datos = DB:: table('info_persona')
+       
+        ->join('personas', 'info_persona.persona_id', '=', 'personas.id')
+        ->join('hogar_p', 'personas.hogar_id', '=', 'hogar_p.id')
+        ->join('sector', 'hogar_p.codigo_sector', '=', 'sector.codigo_sector')
+        ->join('vereda', 'sector.codigo_vereda', '=', 'vereda.codigo_vereda')
+       ->join('zona', 'vereda.codigo_zona', '=', 'zona.codigo_zona')
+       ->join('resguardo', 'zona.codigo_resguardo', '=', 'resguardo.codigo_resguardo')
+       ->join('municipio', 'resguardo.codigo_municipio', '=', 'municipio.codigo_municipio')
+       ->join('departamento', 'municipio.codigo_departamento', '=', 'departamento.codigo_departamento')
+       // ->where ('personas.docomento_persona')->get ();
+        ->where('personas.hogar_id',$hogar_id)->get();
+
+        //return view('interfaces.personas',compact('datos'));
+
+       return  view('interfaces.certificado_censo_familiar',compact('datos'));
+    }
 
 
 /*

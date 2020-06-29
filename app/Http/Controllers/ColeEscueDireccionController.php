@@ -17,11 +17,12 @@ class ColeEscueDireccionController extends Controller
         public function direccion_escue_cole($id_persona)
 
         {
+            $id_hogar = info_persona::findOrFail($id_persona);
         // para leseccionar los municipios en la vista  
           $municipioColegio = DB::table("municipioColegio")->pluck("nombre_municipio","codigo_muni");
           //el codigo de persona para ver en vista educacion formal
           $datos = info_persona::findOrFail($id_persona);
-            return view('interfaces.educacion_formal',compact('municipioColegio','datos'));
+            return view('interfaces.educacion_formal',compact('municipioColegio','datos','id_hogar'));
 
            
             

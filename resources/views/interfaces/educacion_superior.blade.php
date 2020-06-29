@@ -1,7 +1,9 @@
 @extends('layouts.menu2')
 
 @section('content')
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  
+  <script src="/js/sweetalert2@9.js"></script>
       <!--\\\\\\\ contentpanel start\\\\\\-->
       <div class="pull-left breadcrumb_admin clear_both">
         <div class="pull-left page_title theme_color">
@@ -120,9 +122,11 @@
                               </table>
       
 			                           <div  class="color_infor noPrint" style="margin-top: 15px;">  
-					                     <span  class="color_infor  noPrint">Usted se encuentra en: &nbsp;&nbsp;Censo Poblacional Misak SIPEMP&gt; <font color="#666666">Educacion Superior</font></span>        
-			                           </div>					
-                                       
+					                     <span  class="color_infor  noPrint">Usted se encuentra en:     &nbsp;&nbsp;Censo Poblacional Misak SIPEMP&gt; <font color="#666666">Educacion Superior</font></span>        
+			                           </div>	
+
+                                {{$id_hogar->hoga_id}}
+
                                  </div><!--FIN titulo_infobasica-->
 								   <!-- FORMULARIO-->
 							
@@ -233,14 +237,10 @@
 				<option value="DOC">Doctorado</option>
           </select>
          </div>
-	                  <div class="form-group input-group-sm">
-                  <label ><span class="asterisco">*</span>Nombre de la Carrera</label>
-                   <input name="nombre_carrera" type="text" value=""  tabindex="2" class="form-control" style="" autocomplete="on"  value=""   >
-         
-               </div>
+	                 
 			   
 			
-		 
+		 <!--
 		     <div class="form-group input-group-sm">
                   <label ><span class="asterisco">*</span>Nombre de la Institución </label>
                    <input name="nombre_ies" type="text"   tabindex="2" class="form-control" style="" autocomplete="on"  value=""   >
@@ -251,7 +251,7 @@
                   <label ><span class="asterisco">*</span>Ciudad donde esta  el IES </label>
                    <input name="ciudad_ies" type="text"   tabindex="2" class="form-control" style="" autocomplete="on"  value=""   >
          
-               </div>
+               </div>-->
 				  <div class="form-group input-group-sm">
                                             <label>
                                                 <span class="asterisco">*</span>
@@ -266,35 +266,27 @@
 			                              </select>
                   </div>
 			   
-			   <div class="form-group ">
-            <label ><span class="asterisco">*</span>Año de Ingreso</label>
-            <div class="clearfix"></div>
-            <div class="form-inline input-group-sm">
-            <input name="año_ingreso" type="date"   tabindex="2" class="form-control" style="" autocomplete="on"  value=""   >
-         
-         </div>
-       </div>
+			  
 	   
-	      <div class="form-group ">
-            <label ><span class="asterisco">*</span>Año Finalizado</label>
-            <div class="clearfix"></div>
-            <div class="form-inline input-group-sm">
-            <input name="fecha_finalizado" type="date"   tabindex="2" class="form-control" style="" autocomplete="on"  value=""   >
-         
-         </div>
-       </div>
+	      
 	   
 	     			   
     </div>
 	
         <div class="col-md-6 col-sm-12 col-xs-12">
       
-
+        <div class="form-group input-group-sm">
+                  <label ><span class="asterisco">*</span>Nombre de la Carrera</label>
+                   <input name="nombre_carrera" type="text" value=""  tabindex="2" class="form-control" style="" autocomplete="on"  value=""   >
+         
+               </div>
                  
 										
         <input name="documento_id" type="text"  style="visibility:hidden" value="{{$datos->id}}" tabindex="2"  class="form-control btn-warning" style="width:60px"  value="" >
 		  
-		 
+		      
+        <input name="persona_id" type="text"   style="visibility:hidden"  value="{{$datos->persona_id}}" tabindex="2"  class="form-control btn-warning" style="width:60px"  value="" >
+                                       
       </div>
   </div>
 </div>
@@ -586,8 +578,8 @@ function borrar(idx)
               'Se ha guardado con éxito ss',
               'success'
             )
-           // setTimeout(function(){  location.href=base+"/Personas/"+response.hogar_id; }, 2000);
-         
+           
+            setTimeout(function(){  location.href=base+"/Resumen-Censo-Personal/"+response.persona_id; }, 2000);
           
         }
 			

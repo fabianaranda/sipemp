@@ -25,6 +25,7 @@ class BuscarPersonaFallecidaController extends Controller
        ->join('municipio', 'resguardo.codigo_municipio', '=', 'municipio.codigo_municipio')
        ->join('departamento', 'municipio.codigo_departamento', '=', 'departamento.codigo_departamento')
         ->where ('personas.docomento_persona', 'LIKE', '%' . $q . '%' )->get ();
+       
         if (count ( $Personas) > 0)
           return view ( 'novedad_retiro.buscar_persona_fallecido',compact('Personas'))->withDetails ( $Personas)->withQuery ( $q );
           else

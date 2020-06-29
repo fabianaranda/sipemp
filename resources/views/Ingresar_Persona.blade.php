@@ -39,8 +39,9 @@
     
     var table = $('.data-table').DataTable({
         processing: true,
-        serverSide: true,
-        ajax: "listtar-persons",
+        serverSide: true,  
+       // ajax: "listtar-persons",
+       ajax: "listtar-persons",
         columns: [
             {data: 'docomento_persona', name: 'docomento_persona'},
             {data: 'nombres', name: 'nombres'},

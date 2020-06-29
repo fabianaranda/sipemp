@@ -131,18 +131,25 @@
 			                           </div>					
                                         <h1 >Informacion Persona </h1>
                                  </div><!--FIN titulo_infobasica-->
+                               
 								   <!-- FORMULARIO-->
-                   <form id="Hogar" method="post" action="info_persona/Guardado" accept-charset="UTF-8" enctype="multipart/form-data" >
+                   <form id="Hogar" method="post" action="info_persona/Guardado" accept-charset="UTF-8" enctype="multipart/form-data"  onSubmit="return validar();>
                      {{ csrf_field() }}
-                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">  
-                            <input name="persona_id" type="text"  style="visibility:hidden" value="{{$datos->id}}" tabindex="2"  class="form-control btn-warning" style="width:60px"  value="" >
-				                    <div class="contenedor_informacion_persona"> <!--Contenedor informacion_persona --->
-                       
-                      
+                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"> 
+                           
+                            
+                            <!-- Codigos foraneos tabla personas -->
+                            <input name="hoga_id"   style="visibility:hidden" type="text"    class="form-control" style="" autocomplete="of"  value=" {{$datos->hogar_id }}"   > 
+                            
+                            <input name="persona_id"  style="visibility:hidden"  type="text"   value="{{$datos->id}}" tabindex="2"  class="form-control btn-warning" style="width:60px"  value="" >
+                           <!---- fin codigos foraneos -->
+                            <div class="contenedor_informacion_persona"> <!--Contenedor informacion_persona --->
+                        
                                    <div class="recuadro_info_persona"> INRESE INFORMACION GENERAL DE:  {{$datos->nombres}} {{$datos->apellidos}} CC N° {{$datos->docomento_persona}} </div>
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                
-                      
+                                   
+
                                         <div class="col-md-6 col-sm-12 col-xs-12"> <!--Columna 1-->
                                                
                                      <div class="form-group input-group-sm">
@@ -785,7 +792,25 @@
                                    </div>
                                 <div class="clearfix"></div> <!--Cierra el contenedor 2 . recuadro -->
                                 </div> <!--Fin del contenedor informacion_persona -->
- 						
+                                <div class="contenedor_informacion_persona"> <!--Contenedor informacion_persona --->
+                       
+                       <div class="recuadro_info_persona"> FINALIZADO CON EL CENSO  SOCIOCULTURAL DE:  {{$datos->nombres}} {{$datos->apellidos}} CC N° {{$datos->docomento_persona}}</div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                   
+                        <div class="col-md-3 col-lg-3">
+                        </ul>    
+                        
+                        @foreach($users as $user)
+                             <input data-id="{{$user->id}}"   class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $user->status ? 'checked' : '' }}>
+                      
+                            @endforeach
+                                 </ul>
+                             </div>            
+         
+                       </div>
+                    <div class="clearfix"></div> <!--Cierra el contenedor 2 . recuadro -->
+                    </div> <!--Fin del contenedor informacion_persona -->
+ 
 									
                             
                                      <!--borones Guardar y continuar -->
@@ -798,6 +823,22 @@
                                             </div>
                                  
                                  </form>
+                                 <!--fIN DE VALIDACION DE ESTADO DEL CENSO POBLACIONL-->
+                                 <script>
+                               
+                              function validar(){
+                             if (document.getElementById('condiciones').checked){
+                                  return true;
+                                 }
+                                   else
+                                {
+                                       alert("El formulario no puede ser envia si no acepta el contrato");
+                                   return false;
+                                   }
+                               }
+                              </script>
+                              <!--fIN DE VALIDACION DE ESTADO DEL CENSO POBLACIONL-->
+                 
                                  
 									     <br>
                        <br>
@@ -955,6 +996,25 @@ $('#Hogar').submit(function(e)
 
 
 
+</script>
+
+<script>
+  $(function() {
+    $('.toggle-class').change(function() {
+        var status = $(this).prop('checked') == true ? 1 : 0; 
+        var user_id = $(this).data('id'); 
+         
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '/changeStatus',
+            data: {'status': status, 'user_id': user_id},
+            success: function(data){
+              console.log(data.success)
+            }
+        });
+    })
+  })
 </script>
 <!---------------! FIN  seleccionar  Genero  -------->
 

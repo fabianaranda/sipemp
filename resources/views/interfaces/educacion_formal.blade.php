@@ -272,7 +272,7 @@
 										       
                                        <input name="info_persona_id" type="text"  style="visibility:hidden" value="{{$datos->id}}" tabindex="2"  class="form-control btn-warning" style="width:60px"  value="" >
                                            
-
+                                      <input name="persona_id" type="text"   style="visibility:hidden"  value="{{$datos->persona_id}}" tabindex="2"  class="form-control btn-warning" style="width:60px"  value="" >
                                         
 
                                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -571,7 +571,7 @@ $('#Hogar').submit(function(e)
               'success'
             )
              //   setTimeout(function(){  location.href=base+"/Ingresar_personas/"+response.id; }, 2000);
-          
+             setTimeout(function(){  location.href=base+"/Resumen-Censo-Personal/"+response.persona_id; }, 2000);
 		  }
           else{
             Swal.fire({

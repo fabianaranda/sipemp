@@ -16,7 +16,7 @@ class EducacionSuperiorController extends Controller
             // $user->ciudad_ies = $data['ciudad_ies'];
            //$user->estado_actual = $data['estado_actual'];
             // $user->año_ingreso = $data['año_ingreso'];
-            // $user->fecha_finalizado = $data['fecha_finalizado'];
+             
            
             
             $user->save();
@@ -38,25 +38,23 @@ class EducacionSuperiorController extends Controller
             $hogar -> tipo_educacion_superior = $data['tipo_educacion_superior'];
             $hogar -> nombre_carrera = $data['nombre_carrera'];
 
-            $hogar -> nombre_ies = $data['nombre_ies'];
-            $hogar -> ciudad_ies = $data['ciudad_ies'];
-            $hogar -> estado_actual = $data['estado_actual'];
-            $hogar -> año_ingreso  = $data['año_ingreso'];
-            $hogar -> fecha_finalizado  = $data['fecha_finalizado'];
+           
             $hogar -> documento_id  = $data['documento_id'];
-
+            $hogar-> persona_id = $data['persona_id'];
            
             
             $hogar->save();
         }
         if (true /*$resul*/)
-            {
-            
-                return view("mensajes.msj_correcto")->with("msj","Informacion de la vivienda Guardado");   
-             }  else
-            {
-              return back()->with("errormsj","Datos no Guardado");
-		    }
+        {
+        
+           //return view("mensajes.msj_correcto")->with("msj","Informacion de la vivienda Guardado");   
+         return ['validate'=>true,'persona_id'=>$hogar->persona_id];
+        
+        }  else
+        {
+          return back()->with("errormsj","Datos no Guardado");
+        }
     }
     
 }
