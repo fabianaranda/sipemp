@@ -6,25 +6,39 @@ use Illuminate\Http\Request;
 use DB;
 use App\economia_familia ;
 Use App\comidas_propias;
+Use App\plancondiaroma ;
+Use App\plantaAromaticas;  
+Use App\plantaMedicinal;  
+
+Use App\plantaNutricional;  
+Use App\plantaEspirituales;
+use  App\vivienda;
 class DireccionViviendaHogarController extends Controller
 {
-    public function direccion_Hogar_Vivienda($id_vivienda)
+    public function direccion_Hogar_Vivienda_persona($id_persona)
         {
-            try{
+           // try{
                   $departamento = DB::table("departamento")->pluck("nombre_depatamento","codigo_departamento");
                      ///leer los datos comidad propias y economia  de la familia misak, desde BD  tabla  comidas propias y tabla economia misak 
-                  $economia  = economia_familia::get();
-                 $comida  = comidas_propias::get();
-        
-           // return view('interfaces.hogar',compact('departamento','id_vivienda'));
+                   
+                   //codigo del hogar
+                    $id_vivienda = vivienda::findOrFail($id_persona);
+                    $economia  = economia_familia::get();
+                    $comida  = comidas_propias::get();
+                    $plancondiaroma  =  plancondiaroma::get();
+                    $plantaAromaticas  =  plantaAromaticas::get();
+                    $plantaMedicinal  =  plantaMedicinal::get(); 
+                    $plantaNutricional  =  plantaNutricional::get();
+                    $plantaEspirituales =  plantaEspirituales::get();
+                 return view('interfaces.hogar_persona',compact('departamento','id_vivienda','economia','comida','plancondiaroma','plantaAromaticas','plantaMedicinal','plantaNutricional','plantaEspirituales'));
                   //variables  de la tabalas, deprtamento, economia, comida
-                return view('interfaces.hogar_persona',compact('departamento','id_vivienda','economia','comida'));
+               // return view('interfaces.hogar_persona',compact('departamento','id_vivienda','economia','comida','plancondiaroma','plantaAromaticas','plantaMedicinal','plantaNutricional','plantaEspirituales'));
               
-     
-            } catch(\Throwable $ht)
-            {
+                
+            //} catch(\Throwable $ht)
+           // {
                 ['validate'=>false];
-            }
+            //}
         }
 
 

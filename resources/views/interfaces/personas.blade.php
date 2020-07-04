@@ -148,7 +148,7 @@
                                                                    <td>{{$temp->nombres}}</td>
                                                                      <td>{{$temp->apellidos}}</td>
                                                                      <td class="text-center">
-                                                                    @if ($temp->status == 1)
+                                                                       @if ($temp->status == 1)
                                                                     <span class="badge badge-success">Censado</span>
                                                                    
                                                                       @else

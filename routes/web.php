@@ -51,23 +51,25 @@ Route::middleware(['auth'])->group(function () {
 */
 Route::get('Vivienda','InterfacesController@interfas_vivienda')->name ('Vivienda');
 Route::POST('Vivienda/Guardado', 'ViviendaController@create_informacion_vivienda')->name('Vivienda.create');
-
+Route::get('Vivienda','InfraestructuraCasaMisakController@material_paredes')->name ('Vivienda');
 
 
 //Route::get('Vivienda','MaterialCocinaController@material_cocina')->name ('Vivienda');
 
-Route::get('Vivienda','InfraestructuraCasaMisakController@material_paredes')->name ('Vivienda');
-Route::get('get-codigo_material_Pareded-list','DireccionViviendaHogarController@getmunicipio');
+
+//Route::get('get-codigo_material_Pareded-list','DireccionViviendaHogarController@getmunicipio');
 /*
 |--------------------------------------------------------------------------
 |                        CENSO HOGAR_PERSONA    
 |
 */                       //Route  vista hogar persona 
-//Route::get('hogar_persona','InterfacesController@interfas_hogar_persona')->name ('hogar_persona');
+//Route::get('Vivienda-Hogarr','InterfacesController@interfas_hogar_persona')->name ('hogar_persona');
 
-Route::POST('Vivienda-Hogar/Guardado', 'HogarController@create_hogar_persona');
+
+
+//Route::POST('Vivienda-Hogar/Guardado', 'HogarController@create_hogar_persona');
                            //   Route para direccion de hogar 
-Route::get('Vivienda/{id_vivienda}/Hogar','DireccionViviendaHogarController@direccion_Hogar_Vivienda')->name('interfaces.hogar_persona');
+Route::get('Vivienda-Hogar_persona/{id_persona}','DireccionViviendaHogarController@direccion_Hogar_Vivienda_persona')->name('Vivienda-Hogar_persona');
 Route::get('get-municipio-list','DireccionViviendaHogarController@getmunicipio');
 Route::get('get-resguardo-list','DireccionViviendaHogarController@getresguardo');
 Route::get('get-zona-list','DireccionViviendaHogarController@getzona');
@@ -320,7 +322,7 @@ Route::post('Ingreso-persona-Nocleo-familiar', 'PersonasController@create_grupo_
 /*
 
 |--------------------------------------------------------------------------
-|             VISTA  NUEVA HOGAR MISAK- ACTUALIZACIONES 
+|             VISTA  NUEVA HOGAR MISAK- ACTUALIZACIONES , INGREZAR UN NUEVO HOGAR , PERSONAS REGISTRADOS EN EL SISTEMA
 
 */
 // Ruta, hogar familia, 

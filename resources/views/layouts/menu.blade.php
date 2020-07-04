@@ -208,7 +208,7 @@
                               <a href="{{ url('Menu-Actualizacion') }}">ACTUALIZACIÓN  DEL CENSO </a>
                         </li>
                         <li>
-                              <a href="{{ url('Menu-Novedad') }}">NOVEDADADES DEL  CENOS </a>
+                              <a href="{{ url('Menu-Novedad') }}">NOVEDADADES DEL  CENSO </a>
                         </li>
                        
                          <li>
