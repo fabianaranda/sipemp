@@ -389,13 +389,13 @@
 
                                             <div class="col-md-6 col-sm-12 col-xs-12">
                                                 <div class="form-group input-group-sm">
-                                                    <div class="form-group input-group-sm">
+                                                  <!--  <div class="form-group input-group-sm">
                                                         <label><span class="asterisco">*</span>Número de
                                                             personas</label>
                                                         <input name="total_personas_hogar" type="number" tabindex="2"
                                                             class="form-control" style="" autocomplete="on" value=""
                                                             style="width:200px" required="">
-                                                    </div>
+                                                    </div>-->
 
 
                                                     <div class="form-group ">

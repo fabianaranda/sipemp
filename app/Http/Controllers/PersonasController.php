@@ -48,7 +48,7 @@ class PersonasController extends Controller
            // $hogar -> edad_actual  = $data["edad_actual"];
             $hogar -> nivel_academico  = $data["nivel_academico"];
             $hogar -> parentesco  = $data["parentesco"];
-            $hogar -> hogar_id  = $data["hogar_id"];
+            $hogar -> hogar_id = $data["hogar_id"];
           
            
             //$hogar -> docomento_pdf  = $data["docomento_pdf"];

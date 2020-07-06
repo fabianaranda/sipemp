@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="account-status-data">
-                        <h4> Buscar por Código de Familia o Doc. de Integrante</h4>
+                        <h4> Buscar por Código del Hogar o Doc. de Integrante</h4>
 
                         <form id="" class="form_cunsulta" name="form" action="/Informacion-vivienda" method="POST"
                             role="Informacion-hogar" class="pocicion_formulario">

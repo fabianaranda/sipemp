@@ -133,10 +133,10 @@
             <!--FIN titulo_infobasica-->
 
             <!-- FORMULARIO-->
-            <form id="Hogar" method="post" action="info_persona/Guardado" accept-charset="UTF-8"
-                enctype="multipart/form-data" onSubmit="return validar();>
-                     {{ csrf_field() }}
-                            <input type=" hidden" name="_token" value="<?php echo csrf_token(); ?>">
+            <form id="Hogar" method="post" action="info_persona/Guardado" accept-charset="UTF-8" enctype="multipart/form-data" >
+               
+            {{ csrf_field() }}
+                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">  
 
 
                 <!-- Codigos foraneos tabla personas -->
@@ -958,16 +958,7 @@
 
             </form>
             <!--fIN DE VALIDACION DE ESTADO DEL CENSO POBLACIONL-->
-            <script>
-            function validar() {
-                if (document.getElementById('condiciones').checked) {
-                    return true;
-                } else {
-                    alert("El formulario no puede ser envia si no acepta el contrato");
-                    return false;
-                }
-            }
-            </script>
+        
             <!--fIN DE VALIDACION DE ESTADO DEL CENSO POBLACIONL-->
 
 
@@ -1065,38 +1056,7 @@
 </footer>
 
 
-<script type="text/javascript">
-$('#Hogar').submit(function(e) {
-    e.preventDefault(); //cancelar el envio
-    var url = $("#Hogar").attr('action');
-    var type = $("#Hogar").attr('method');
-    $.ajax({
-        type: type,
-        url: base + '/' + url,
-        data: $('#Hogar').serialize(),
-        dataType: 'json',
-        success: function(response) {
-            if (response.validate) {
-                Swal.fire(
-                    'Exito',
-                    'Se ha guardado con éxito ss',
-                    'success'
-                )
-                setTimeout(function() {
-                    location.href = base + "/Menu-Educacion-Formal/" + response.id;
-                }, 2000);
 
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'Se generó un error al guardar!',
-                })
-            }
-        }
-    })
-})
-</script>
 
 <!-- Seleccionar  genero de la persona a censar -->
 <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--->
@@ -1148,6 +1108,38 @@ $(function() {
 })
 </script>
 <!---------------! FIN  seleccionar  Genero  -------->
+<script type="text/javascript">
+$('#Hogar').submit(function(e) {
+    e.preventDefault(); //cancelar el envio
+    var url = $("#Hogar").attr('action');
+    var type = $("#Hogar").attr('method');
+    $.ajax({
+        type: type,
+        url: base + '/' + url,
+        data: $('#Hogar').serialize(),
+        dataType: 'json',
+        success: function(response) {
+            if (response.validate) {
+                Swal.fire(
+                    'Exito',
+                    'Se ha guardado con éxito ss',
+                    'success'
+                )
+                setTimeout(function() {
+                    location.href = base + "/Menu-Educacion-Formal/" + response.id;
+                }, 2000);
+
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Se generó un error al guardar!',
+                })
+            }
+        }
+    })
+})
+</script>
 
 
 @endsection

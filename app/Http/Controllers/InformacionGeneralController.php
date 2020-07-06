@@ -45,7 +45,7 @@ class InformacionGeneralController extends Controller
            return view ( 'consultas.informacion_persona' )->withDetails ( $Personas)->withQuery ( $q );
            else
            
-           return view ( 'consultas.informacion_persona' )->withMessage ( '¡La persona no se encuentra en el censo Poblaciona Misak!!' );
+           return view ( 'consultas.informacion_persona' )->withMessage ( '¡La persona no se encuentra en el Censo Poblacional SIPEMP!!' );
     }
 
 }

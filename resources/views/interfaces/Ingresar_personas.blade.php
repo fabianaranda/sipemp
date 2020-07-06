@@ -317,10 +317,9 @@
                                 <div class="form-group ">
                                     <div class="clearfix"></div>
                                     <div class="form-inline input-group-sm">
-                                        <label><span class="asterisco">*</span>Codigo Hogar</label>
-                                        <input name="hogar_id" type="text" disabled=»disabled» value="{{$id_Hogar}}"
-                                            tabindex="2" class="form-control " style="width:60px" value="">
-                                    </div>
+                                        <label ><span class="asterisco">*</span>Codigo Hogar</label>
+                                      <input name="hogar_id" type="text"  value="{{$id_Hogar}}" tabindex="2"  class="form-control btn-warning" style="width:60px"  value="" >
+                                     </div>
                                 </div>
                             </div>
                         </div>

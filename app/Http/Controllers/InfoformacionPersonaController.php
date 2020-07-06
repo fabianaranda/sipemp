@@ -31,16 +31,12 @@ class InfoformacionPersonaController extends Controller
             $user->medicina_alternativa = $data['medicina_alternativa'];
             $user->consumo_sustancias = $data['consumo_sustancias'];
             $user->comunidad_indigena = $data['comunidad_indigena'];
-            $user->telefono = $data['telefono'];                                 
+            $user->telefono = $data['telefono'];
 
            
             $user->carnet_salud_id = $data['carnet_salud_id'];
             $user->profecion_id = $data['profecion_id'];
             $user->enfermedades_id = $data['enfermedades_id'];
-
-            $user->hoga_id = $data['hoga_id'];
-
-        
 
             //$user->persona_id = $data['persona_id'];
             

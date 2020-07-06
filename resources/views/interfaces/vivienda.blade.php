@@ -263,7 +263,7 @@
                                                                       tabindex="2" class="form-control" style=""
                                                                       autocomplete="on" value="" style="width:200px"
                                                                       required="">
-                                                              </div>
+                                                              </div>-->
                                                               <div class="form-group input-group-sm">
                                                                   <label for="title">Cuartos Usados </label>
                                                                   <input name="cuartos_usados" type="number"
@@ -712,7 +712,7 @@ $('#Hogar').submit(function(e) {
 
 
                 setTimeout(function() {
-                    location.href = base + "/Vivienda-Hogar/" + response.id;
+                    location.href = base + "/Vivienda-Hogar_persona/" + response.id;
                 }, 2000);
             } else {
                 Swal.fire({

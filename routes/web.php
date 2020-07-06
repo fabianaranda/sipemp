@@ -80,15 +80,11 @@ Route::get('get-sector-list','DireccionViviendaHogarController@getsector');
 |--------------------------------------------------------------------------
 |                            CENSO HOGAR    
 |
-*/ Route::get('Hogar','InterfacesController@interfas_hogar')->name ('Hogar');
+*/
+
+Route::get('Hogar','InterfacesController@interfas_hogar')->name ('Hogar');
 Route::get('Hogar','DireccionHogarController@direccion_Hogar');
-
 Route::POST('Vivienda-Hogar/Guardado', 'HogarController@create_hogar');
-
-
-
-
-
 Route::get('get-municipio-list','DireccionHogarController@getmunicipio');
 Route::get('get-resguardo-list','DireccionHogarController@getresguardo');
 Route::get('get-zona-list','DireccionHogarController@getzona');
@@ -153,9 +149,10 @@ Route::get('Personas/{id_hogar}','InterfacesController@interfas_personas')->name
 |
 */ Route::get('Informacion_Persona/{id_persona}','InterfacesController@interfas_informmacion_persona')->name ('Informacion_Persona');
     // ruta para actualizar estado mediante js
-Route::get('changeStatus', 'InterfacesController@changeStatus');
+//Route::get('changeStatus', 'InterfacesController@changeStatus');
 /// ruta para guardar informacion persona 
   Route::POST('info_persona/Guardado', 'InfoformacionPersonaController@create_informacion_persona');
+
 
 /*
 |--------------------------------------------------------------------------

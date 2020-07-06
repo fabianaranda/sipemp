@@ -50,7 +50,8 @@
                         </div>
                     </div>
                     <div class="account-status-data">
-                        <h4> Buscar por Código de Familia o Doc. de Integrante</h4>
+                        <h4> Buscar por Código del Hogar</h4>
+                        <br>
 
                         <form id="" class="form_cunsulta" name="form" action="/Informacion-hogar" method="POST"
                             role="Informacion-hogar" class="pocicion_formulario">
@@ -204,10 +205,10 @@
                                                         </thead>
                                                         <tbody>
 
-                                                            @foreach($details as $persona)
+                                                           
+                                                            @foreach($details as $key=> $persona)
                                                             <tr>
-                                                                <td>{{$persona-> n_integrantes}}</td>
-
+                                                               <td > {{$key+1}}</td>
                                                                 <td>{{$persona-> parentesco }}</td>
                                                                 <td>{{$persona-> nombres }}</td>
                                                                 <td>{{$persona-> apellidos }}</td>

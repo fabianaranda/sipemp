@@ -26,6 +26,6 @@ class ConsultaHogarController extends Controller
            return view ( 'consultas.informacion_hogar' )->withDetails ( $Personas)->withQuery ( $q );
            else
            
-           return view ( 'consultas.informacion_hogar' )->withMessage ( '!!Codigo del hogar no exixte' );
+           return view ( 'consultas.informacion_hogar' )->withMessage ( 'Error codigo de hogar.' );
     }
 }

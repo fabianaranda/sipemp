@@ -18,10 +18,10 @@ class usuariosController extends Controller
         $user = User::create([
            
             'name' => $data['name'],
-            'apellidos' => $data['apellidos'],
-            'cargo' => $data['cargo'],
-            'fin_contrato' => $data['fin_contrato'],
-            'cedula' => $data['cedula'],
+            //'apellidos' => $data['apellidos'],
+           // 'cargo' => $data['cargo'],
+            //'fin_contrato' => $data['fin_contrato'],
+           // 'cedula' => $data['cedula'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
           
