@@ -276,7 +276,7 @@ Route::get('Actualizacion-informacion-general','InterfacesController@vista_actua
  
 
  // VISTA ACTUALIZACION TABLA PERSONA ///
-Route::get('Edit-Informacion/{id_persona}','InterfacesController@actualizacion_informacion_personas')->name('Actualizacion-Informacion-General-Persona');
+Route::get('Edit-Informacion/{id_persona}','InterfacesController@actualizacion_informacion_personas')->name('Edit-Informacion');
 
 
 

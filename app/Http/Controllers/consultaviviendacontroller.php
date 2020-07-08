@@ -36,6 +36,6 @@ class consultaviviendacontroller extends Controller
            return view ( 'consultas.informacion_vivienda' )->withDetails ( $Personas)->withQuery ( $q );
            else
            
-           return view ( 'consultas.informacion_vivienda' )->withMessage ( '!!Codigo vienda' );
+           return view ( 'consultas.informacion_vivienda' )->withMessage ( '!El habitante no tiene Vivenda Dentro del Territorio' );
     }
 }

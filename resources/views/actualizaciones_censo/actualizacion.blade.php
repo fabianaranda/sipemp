@@ -215,7 +215,7 @@
                                 -->
 
                                                                   <td width="10px">
-                                                                      <a href="{{ route('Actualizacion-Informacion-General-Persona', $persona->id) }}"
+                                                                      <a href="{{ route('Edit-Informacion', $persona->id) }}"
                                                                           class="btn btn-sm btn-danger">
                                                                           Actualizar Informacion
                                                                       </a>

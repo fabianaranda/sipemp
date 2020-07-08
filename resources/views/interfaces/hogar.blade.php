@@ -864,7 +864,7 @@
                                 @endforeach
                             </ul>
 
-
+                        
                         </div>
                         <div class="col-md-3 col-lg-3">
                             <div class="titulo_informacion">
@@ -888,7 +888,7 @@
 
                         <div class="col-md-3 col-lg-3">
                             <div class="titulo_informacion">
-                                <h1> Nutricionales- espirituales</h1>
+                                <h1> Nutricionales</h1>
 
                             </div>
                             <ul class="">
@@ -906,9 +906,9 @@
 
                         </div>
 
-                        <div class="col-md-3 col-lg-3">
+                        <div class="col-md-6 col-lg-6">
                             <div class="titulo_informacion">
-                                <h1> Nutricionales- espirituales</h1>
+                                <h1> espirituales</h1>
 
                             </div>
 
@@ -936,8 +936,7 @@
 
 
 
-                    ---------------
-
+    
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="titulo_informacion">
                             <h1>*Ingresar la direccion donde habita la familia </h1>

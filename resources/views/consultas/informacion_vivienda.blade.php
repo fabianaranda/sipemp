@@ -1,29 +1,32 @@
 @extends('layouts.menu')
+
 @section('content')
 <link rel="stylesheet" href="css/estilos_pie_pagina.css">
-
+<link href="{{ asset('css/certificado.css') }}" rel="stylesheet">
 <!--\\\\\\\ contentpanel start\\\\\\-->
 <div class="pull-left breadcrumb_admin clear_both">
     <div class="pull-left page_title theme_color">
-        <h1>Consultas</h1>
-        <h2 class="">Informacion Vivienda</h2>
+        <h1>CONSULTAS</h1>
+        <h2 class="">Informacion Perosona</h2>
     </div>
     <div class="pull-right">
         <ol class="breadcrumb">
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Consultas</a></li>
-            <li class="active">Informacion Vivienda</li>
+            <li class="active">Informacion Persona</li>
         </ol>
     </div>
 </div>
+
 <br>
 <br>
 <br>
 <div class="color_informacion_modulo " style="margin-top: 15px;">
     <span class="color_infor  ">Usted se encuentra en: &nbsp;&nbsp;<font color="#060505"> Sistema de Informacion
             Poblacional Misak -SIPEMP &gt; <font color="#060505">Consultas </font> &gt; <font color="#060505">
-                Informacion Vivienda</font> </span>
+                Informacion Vivienda </font> </span>
 </div>
+
 
 <!---//////// CONTENEDOR  INFIRMACION DE USUARIO  Y CARACTERISTICAS  ETC///////////////////////////////------->
 <div class="container clear_both padding_fix">
@@ -33,10 +36,10 @@
 
 
             <div class="col-md-4">
-                <div class="profile_bg">
+                <div class="profile_consulta_persona">
                     <div class="user-profile-sidebar">
                         <div class="row">
-                            <div class="col-md-4"><img src="images/shura.png" width="40" /></div>
+                            <div class="col-md-4"><img src="images/shura.png" width="40px" /></div>
                             <div class="col-md-8">
                                 <div class="user-identity">
                                     <!--
@@ -48,36 +51,30 @@
                         </div>
                     </div>
                     <div class="account-status-data">
-                        <h4> Buscar por Código del Hogar o Doc. de Integrante</h4>
+                        <h4>Ingresar el número de identificación </h4>
 
-                        <form id="" class="form_cunsulta" name="form" action="/Informacion-vivienda" method="POST"
-                            role="Informacion-hogar" class="pocicion_formulario">
+                        <form id="" class="form_cunsulta" name="form" action="/Informacion-Persona" method="POST"
+                            role="informacion-perosona" class="pocicion_formulario">
                             {{ csrf_field() }}
 
                             <div id="consulta_externa">
 
                                 <input id="nuip" name="q" class="inputbuscar" style="text-align:center"
-                                    title="El nùmero de cèdula debe ser de 2 a 10 dígitos" value="" style="width:100px"
+                                    title="El nùmero de cèdula debe ser de 2 a 10 dígitos" value="" style="width: 200px"
                                     autocomplete="of">
-
 
                                 <span class="animated fadeIn"></span>
                             </div>
-
+                            <br>
                             <!--	<div class="nobottommargin tright">
 								<input type="submit" id="boton" name="enviar" value="Buscar " class="boton tab-linker btn-block" style="width: 160px">
 							</div>-->
 
-
-
                             <div class="user-button">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- <button type="button" class=" btn btn-primary btn-rounded" ><i class="fa fa-envelope"></i> Buscar</button>-->
-                                        <input type="submit" id="boton" name="enviar" value="Buscar "
-                                            class="botonBuscar" style="width: 100px">
-
-
+                                        <input type="submit" id="boton" name="enviar" value="Ver información "
+                                            class="botonBuscar" style="width: 160px">
 
                                     </div>
                                     <div class="col-sm-6">
@@ -93,7 +90,6 @@
 
                     </div>
 
-
                     <!--
                 <div> <small class="">extra</small>
                   <!--
@@ -106,7 +102,6 @@
                 </div>-->
                 </div>
             </div>
-            <br>
             <!-- ESTYLE BOTONES -->
             <style>
             .botonBuscar {
@@ -148,93 +143,408 @@
             }
             </style>
 
+
+
             <!--//////Meno de informacion de sistema ,  ingresar usuarios y ver usuarios en el sistema ///////////--->
             <!--/col-md-4-->
             <div class="col-md-8">
+
                 <div class="ContenedorFormularioConsultasActualizacion">
                     <div class="block-web full">
                         <ul class="nav nav-tabs nav-justified nav_bg">
                             <li class="active"><a href="#Informacion_del_sistema" data-toggle="tab"><i
-                                        class="fa fa-laptop"></i>Información General de la Vivienda </a></li>
-                            <li class="active"><a href="#ingresar_usuarios" data-toggle="tab"><i class="fa fa-user"></i>
-                                    Informacion de la Infrastructura </a></li>
-                            <!--  <li class="active"><a href="#roles" data-toggle="tab"><i class="fa  fa-users"></i> Información sociocultural </a></li>-->
+                                        class="fa fa-laptop"></i>INFIRMACÌON DE LA VIVIENDA </a></li>
+                          <!--  <li class="active"><a href="#ingresar_usuarios" data-toggle="tab"><i class="fa fa-user"></i>
+                                    Información Academico </a></li>
+                            <li class="active"><a href="#roles" data-toggle="tab"><i class="fa  fa-users"></i>
+                                    Información academcia superiores </a></li>-->
 
                         </ul>
                         <div class="tab-content">
                             <!---/////Informacion del sistema de informacion poblacional////////---->
                             <div class="tab-pane animated fadeInRight active" id="Informacion_del_sistema">
                                 <div class="user-profile-content">
-                                    <!--  <h5><strong>INFORMACIÓN DE LA  PERSONA N°CC:  </strong> <b> </b></h5>
-                      <!--<p> <> </p>-->
-                                    <hr>
                                     <div class="row">
                                         <div class="col-sm-12">
 
-                                            <!-- <h5><strong>Ingresar Informacion</strong> -</h5>
-                          <address>-->
+                                            <!-- <h5><strong>Ingresar Informacion</strong> -</h5>---->
+                                            <address>
+                                                <h1>{{Session::get('data')}}</h1>
+                                                @if(isset($details))
+                                                Informacion del Habitante a actualizar N° CC : <b1> {{ $query }} 
+                                                Es :
+                                                @foreach($details as $persona)
+                                                <table width="800" border="0" align="center" cellpadding="0"
+                                                    cellspacing="1" bgcolor="#CCCCCC">
+                                                    <tbody>
 
-                                            <div class="alert alert-success" role="alert">
+                                                        <tr bgcolor="#F4F7FB">
+                                                            <td colspan="3">
+                                                                <!--<p>&nbsp;</p>-->
+                                                                <table width="95%" border="0" align="center"
+                                                                    cellpadding="0" cellspacing="1" bgcolor="#999999">
+                                                                    <tbody>
+                                                                        <tr bgcolor="#8398C5">
+                                                                            <td colspan="4" class="tituloEtiqueta"
+                                                                                align="center">
+                                                                                <div align="center">INFIRMACÌON GENERAR
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr bgcolor="#327bb2">
+                                                                            <td colspan="2" height="25px" ;
+                                                                                class="subtitulo4">
+                                                                                Sistema de Informacion Poblacional Misak -SIPEMP
+                                                                            </td>
+                                                                            <td colspan="2" height="25px" ;>
+                                                                                <div align="left">
 
-                                                <div class="table-responsive">
-                                                    <h1>{{Session::get('data')}}</h1>
-                                                    @if(isset($details))
-                                                    <h5><strong> Informacion de la Familia con el Codigo Hogar :
-                                                            {{ $query }} Son los siguientes. </strong></h5>
-
-                                                    <table class="table table-bordered table-striped">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>#</th>
-
-                                                                <th>PARENTESCO</th>
-                                                                <th>NOMBRES</th>
-                                                                <th>APELLIDOS</th>
-                                                                <th>TIPO CC</th>
-                                                                <th>CC</th>
-                                                                <th>GENERO</th>
-                                                                <th>ESTADO CIVIL</th>
-                                                                <th>ESCOLARIDAD</th>
-                                                                <th>PROFESION</th>
-                                                                <th>TELEFONO</th>
-                                                                <th>DIRECCION</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-
-                                                            @foreach($details as $persona)
-                                                            <tr>
-                                                                <td>{{$persona-> tamaño_casa}}</td>
-
-                                                                <td>{{$persona-> parentesco }}</td>
-                                                                <td>{{$persona-> nombre_material_paredes }}</td>
-                                                                <td>{{$persona-> forma_casa  }}</td>
-                                                                <td>{{$persona->  nombre_material_paredes}}</td>
-                                                                <td>{{$persona->  docomento_persona}}</td>
-                                                                <td>{{$persona->  sexo }}</td>
-                                                                <td>{{$persona-> estado_civil }}</td>
-                                                                <td>{{$persona->  nivel_academico }}</td>
-                                                                <td>{{$persona->  profecion_id  }}</td>
-                                                                <td>{{$persona-> telefono }}</td>
-                                                                <td>{{$persona-> nombre_vereda}}-{{$persona->nombre_sector}}
-                                                                </td>
+                                                                                   
+                                                                                    <span class="subtitulo4">
+                                                                                            Resguardo: </span>&nbsp;
+                                                                                    <font size="0.6px"  color="#fff" ;>
+                                                                                        {{$persona->  nombre_reguardo }}</font>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
 
 
-                                                            </tr>
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
-                                                    @elseif(isset($message))
-                                                    <h3> {{$message}}</h3>
-                                                    @endif
-                                                </div>
 
-                                            </div>
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td width="26%" bgcolor="#ddd"
+                                                                                class="subtitulo2"><strong>NOMBRE
+                                                                                    COMPLETO</strong></td>
+                                                                            <td colspan="3" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                {{$persona->  nombres}} -{{$persona->  apellidos }}
+
+                                                                                &nbsp;</td>
+                                                                        </tr>
+
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td width="25%" bgcolor="#ddd"
+                                                                                class="subtitulo2"><strong>TIPO DE
+                                                                                    DOCUMENTO</strong></td>
+                                                                            <td width="23%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                               {{$persona->  tipo_identificacion}}&nbsp;
+                                                                            </td>
+                                                                            <td width="26%" bgcolor="#ddd"
+                                                                                class="subtitulo2"><strong>NUMERO DE
+                                                                                    DOCUMENTO</strong></td>
+                                                                            <td width="26%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                {{$persona->  docomento_persona}}&nbsp;
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr bgcolor="#FFFFFF">
+
+                                                                            <td bgcolor="#ddd" class="style3">
+                                                                                <strong>GÉNERO</strong></td>
+                                                                            <td bgcolor="#FFF" class="style3">
+                                                                                 {{$persona->  sexo}}&nbsp;</td>
+                                                                            <td bgcolor="#ddd" class="style3">
+                                                                                <strong>FECHA NACIMIENTO</strong></td>
+                                                                            <td bgcolor="#FFF" class="style3">
+                                                                                  {{$persona->  fecha_nacimiento}}</td>
+
+                                                                        </tr>
+
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td bgcolor="#ddd" class="subtitulo2">
+                                                                                <strong>ESTADO CIVIL</strong></td>
+                                                                            <td bgcolor="#FFF" class="subtitulo2">
+                                                                                       {{$persona->  estado_civil}}  &nbsp;</td>
+                                                                            <td bgcolor="#ddd" class="subtitulo2">
+                                                                                <strong>TELEFONO</strong></td>
+                                                                            <td bgcolor="#FFF" class="subtitulo2">
+                                                                                {{$persona->  telefono}}&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td bgcolor="#ddd" class="subtitulo2">
+                                                                                <strong>NIVEL ACADEMICO</strong></td>
+                                                                            <td bgcolor="#FFF" class="subtitulo2">
+                                                                                {{$persona->  nivel_academico}}&nbsp;</td>
+                                                                             <td bgcolor="#ddd" class="subtitulo2">
+                                                                                <strong>CODIGO HOGAR</strong></td>
+                                                                             <td bgcolor="#FFF" class="subtitulo2">
+                                                                                {{$persona-> id}}&nbsp;</td>
+                                                                        </tr>
+
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td colspan="4" class="subtitulo2">&nbsp;
+                                                                            </td>
+                                                                        </tr>
+
+
+                                                                        <!--Aqui va el codigo de tablas  informacion del trabajador-->
+
+                                                                        <tr bgcolor="#849AC6">
+                                                                            <td colspan="4" class="tituloEtiqueta"
+                                                                                align="center">
+                                                                                <div align="center">DIRECCIÓN 
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+
+
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td width="25%" bgcolor="#ddd"
+                                                                                class="subtitulo2">
+                                                                                <strong>DEPARTAMENTO</strong></td>
+                                                                            <td width="23%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                {{$persona->  nombre_depatamento}}&nbsp;
+                                                                            </td>
+                                                                            <td width="26%" bgcolor="#ddd"
+                                                                                class="subtitulo2">
+                                                                                <strong>MUNICIPIO</strong></td>
+                                                                            <td width="26%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                {{$persona->  nombre_municipio}}&nbsp;</td>
+                                                                        </tr>
+																		 <tr bgcolor="#FFFFFF">
+                                                                            <td width="25%" bgcolor="#ddd"
+                                                                                class="subtitulo2">
+                                                                                <strong>RESGUARDO</strong></td>
+                                                                            <td width="23%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                {{$persona->  nombre_reguardo  }}&nbsp;
+                                                                            </td>
+                                                                            <td width="26%" bgcolor="#ddd"
+                                                                                class="subtitulo2">
+                                                                                <strong>ZONA</strong></td>
+                                                                            <td width="26%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                {{$persona->   nombre_zona}}&nbsp;</td>
+                                                                        </tr>
+																		 <tr bgcolor="#FFFFFF">
+                                                                            <td width="25%" bgcolor="#ddd"
+                                                                                class="subtitulo2">
+                                                                                <strong>VEREDA</strong></td>
+                                                                            <td width="23%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                ----&nbsp;
+                                                                            </td>
+                                                                            <td width="26%" bgcolor="#ddd"
+                                                                                class="subtitulo2">
+                                                                                <strong>SECTOR</strong></td>
+                                                                            <td width="26%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                ----&nbsp;</td>
+                                                                        </tr>
+
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td colspan="4" class="subtitulo2">&nbsp;
+                                                                            </td>
+                                                                        </tr>
+                                                                        <!--Aqui finaliza el codigo de tablas direccion empleado-->
+
+                                                                        <!--Aqui va el codigo de tablas informacion  trabajo -->
+
+                                                                        <tr bgcolor="#849AC6">
+                                                                            <td colspan="4" class="tituloEtiqueta"
+                                                                                align="center">
+                                                                                <div align="center">INFORMACIÓN - ACADEMICA 
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr bgcolor="#327bb2">
+                                                                            <td colspan="4" class="subtitulo4"
+                                                                                align="center">
+                                                                                <span class="subtitulo2"><b>
+                                                                                        <font size="0.6px"></font>
+                                                                                    </b></span>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                          <tr bgcolor="#FFFFFF">
+                                                                            <td width="25%" bgcolor="#ddd"
+                                                                                class="subtitulo2"><strong> DEPARTAMENTO COLEGIO                                                                      </strong></td>
+                                                                            <td width="23%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                ----&nbsp;</td>
+                                                                            <td width="26%" bgcolor="#ddd"
+                                                                                class="subtitulo2"><strong>
+                                                                                    MUNICIPIO COLEGIO</strong></td>
+                                                                            <td width="26%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                -----&&nbsp;</td>
+                                                                        </tr>
+                                                                  
+
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td width="25%" bgcolor="#ddd"
+                                                                                class="subtitulo2"><strong> NOMBRE IE                                                                 </strong></td>
+                                                                            <td width="23%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                ---&&nbsp;</td>
+                                                                            <td width="26%" bgcolor="#ddd"
+                                                                                class="subtitulo2"><strong>SEDE IE                                                                            </strong></td>
+                                                                            <td width="26%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                ------&nbsp;</td>
+                                                                        </tr>
+																		 <tr bgcolor="#FFFFFF">
+                                                                            <td width="25%" bgcolor="#ddd"
+                                                                                class="subtitulo2"><strong> GRADO OBTENIDO                                                                      </strong></td>
+                                                                            <td width="23%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                ------}&nbsp;</td>
+                                                                            <td width="26%" bgcolor="#ddd"
+                                                                                class="subtitulo2"><strong>ESTADO                                                                       </strong></td>
+                                                                            <td width="26%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                               ----------
+																				
+																				
+																				&nbsp;</td>
+                                                                        </tr>
+
+
+
+
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td bgcolor="#ddd" class="subtitulo2">
+                                                                                <strong></strong></td>
+                                                                            <td bgcolor="#FFF" class="subtitulo2">&nbsp;
+                                                                            </td>
+                                                                            <td bgcolor="#ddd" class="subtitulo2">
+                                                                                <strong></strong></td>
+                                                                            <td bgcolor="#FFF" class="subtitulo2"> </td>
+                                                                        </tr>
+
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td colspan="4" class="subtitulo2">&nbsp;
+                                                                            </td>
+                                                                        </tr>
+
+
+                                                                        <!--Aqui finaliza el codigo de tablas informacion trabajo-->
+
+
+                                                                        <!--Aqui va el codigo de tablas persona encargada de registar al trabajador  -->
+
+                                                                        <tr bgcolor="#849AC6">
+                                                                            <td colspan="4" class="tituloEtiqueta"
+                                                                                align="center">
+                                                                                <div align="center">ESTUDIOS DE EDUCACION SUPERIOR</div>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr bgcolor="#327bb2">
+                                                                            <td colspan="4" class="subtitulo4"
+                                                                                align="center">
+                                                                                <span class="subtitulo2"><b>
+                                                                                        <font size="0.6px"></font>
+                                                                                    </b></span>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td height="22" bgcolor="#ddd"
+                                                                                class="subtitulo2"><strong>PROGRAMAS PROFESIONALES </strong></td>
+                                                                            <td colspan="3" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                --&nbsp;
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td height="22" bgcolor="#ddd"
+                                                                                class="subtitulo2">
+                                                                                <strong>TIPO EDUCACION SUPERIOR</strong></td>
+                                                                            <td colspan="3" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+                                                                                -
+                                                                                &nbsp;</td>
+                                                                        </tr>
+
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td width="25%" bgcolor="#ddd"
+                                                                                class="subtitulo2"><strong>ESTADO</strong></td>
+                                                                            <td width="23%" bgcolor="#FFF"
+                                                                                class="subtitulo2">
+
+                                                                                ---&nbsp;
+                                                                            </td>
+                                                                            <td width="26%" bgcolor="#ddd"
+                                                                                class="subtitulo2"><strong></strong>
+                                                                            </td>
+                                                                            <td width="26%" bgcolor="#FFF"
+                                                                                class="subtitulo2">&nbsp;</td>
+                                                                        </tr>
+
+
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td bgcolor="#ddd" class="subtitulo2">
+                                                                                <strong></strong></td>
+                                                                            <td bgcolor="#FFF" class="subtitulo2">&nbsp;
+                                                                            </td>
+                                                                            <td bgcolor="#ddd" class="subtitulo2">
+                                                                                <strong></strong></td>
+                                                                            <td bgcolor="#FFF" class="subtitulo2"> </td>
+                                                                        </tr>
+
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td colspan="4" class="subtitulo2">&nbsp;
+                                                                            </td>
+                                                                        </tr>
+
+
+                                                                        <!--Aqui finaliza el codigo de tablas informacion trabajo-->
+
+
+
+
+
+
+                                                                        <!--
+        <tr bgcolor="#FFFFFF">
+          <td colspan="4"><div align="right"></div>            <div align="right"></div>
+            <div align="left">
+              <p>&nbsp;</p>
+              <p align="center">________________________________
+              </p>
+            </div>            <div align="center" class="subtitulo3">
+              <div align="center">
+                <p><strong>Firma.</strong>  NºDocumento : CEDULA DE CIUDADANIA No.</p>
+              </div>
+          </div></td>
+        </tr>-->
+
+
+                                                                    </tbody>
+                                                                </table>
+                                                                <p align="left"><span
+                                                                        class="Estilo4 Estilo5 Estilo6 Estilo7"><span
+                                                                            class="Estilo4 Estilo5 Estilo6  Estilo8 Estilo9"><span
+                                                                                class="Estilo5 Estilo6 Estilo8 Estilo9  Estilo11"><span
+                                                                                    class="Estilo9 Estilo5"><span
+                                                                                        class="Estilo6 Estilo8 Estilo9 Estilo13 Estilo14"><span
+                                                                                            style="font-size:10px"> NOTA: Si la información de habitante  necesita actualización,  ir al modulo actalizacion.</span></span></span></span></span></span>
+                                                                </p>
+
+                                                </table>
+                                                @endforeach
+                                                @elseif(isset($message))
+                                                <h3> {{$message}}</h3>
+                                                @endif
+
+
                                             </address>
                                         </div>
-                                        <!--<div class="col-sm-6">
+
+
+                                        <!-- <div class="col-sm-6">
                           <h5><strong>Ingresar Informacion</strong> --</h5>
-                         
+                          <div class="alert alert-success" role="alert">
+                          <div class="table-responsive">
+					                        
+                                    ingresar un table si es posible
+
+						              	</div>
+                        </div>
                         </div>-->
                                     </div>
                                 </div>
@@ -245,82 +555,24 @@
                             <div class="tab-pane animated fadeInRight" id="ingresar_usuarios">
                                 <div class="user-profile-content">
 
-                                    <h5><strong>INFORMACIÓN DE LA PERSONA N°CC: </strong> <b> </b></h5>
+
                                     <!--<p> <> </p>-->
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-12">
 
-                                            <h5><strong>Ingresar Informacion</strong> -</h5>
-                                            <address>
-
-                                                <div class="alert alert-success" role="alert">
-                                                    <div class="table-responsive">
-                                                        @if(isset($details))
-                                                        Los Datos ingresados del estudiante : <b> {{ $query }} </b> Es :
-                                                        <table class="table table-bordered table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>TIPO DE VIVIENDA DE LA FAMILIA</th>
-                                                                    <th>N° PERSONAS HOGAR</th>
-                                                                    <th>N° DORMITORIOS</th>
-                                                                    <th>N° DORMITORIOS USADOS </th>
 
 
-                                                                    <th>APELIDO</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-
-                                                                @foreach($details as $persona)
-                                                                <tr>
-                                                                    <td>{{$persona-> tipo_propietario }}</td>
-                                                                    <td>{{$persona-> total_personas_hogar }}</td>
-                                                                    <td>{{$persona-> numero_dormitorio }}</td>
-                                                                    <td>{{$persona-> dormitorio_usado}}</td>
-                                                                </tr>
-                                                                @endforeach
-                                                            </tbody>
-                                                        </table>
-                                                        @elseif(isset($message))
-                                                        <h3> {{$message}}</h3>
-                                                        @endif
-                                                    </div>
-
-
+                                            <div class="alert alert-success" role="alert">
+                                                <div class="table-responsive">
+                                                    hhhhhhh
                                                 </div>
+
+
+                                            </div>
                                             </address>
                                         </div>
-                                        <!--<div class="col-sm-6">
-                          <h5><strong>Ingresar Informacion</strong> --</h5>
-                          <div class="alert alert-success" role="alert">
-                          <div class="table-responsive">
-						@if(isset($details))
-					 Los Datos ingresados del estudiante : <b> {{ $query }} </b> Es :
-					<table class="table table-bordered table-striped">
-								<thead>
-								<tr>
-								<th>NOMBRE</th>
-								<th>APELIDO</th>  
-								</tr></thead>
-								<tbody>
 
-									@foreach($details as $persona)
-									<tr>
-                                    <td>{{$persona-> tipo_identificacion }}</td>
-								    <td>{{$persona-> id }}</td>	
-									</tr>
-									@endforeach	
-									</tbody>
-								</table> 
-								@elseif(isset($message))
-                                <h3> {{$message}}</h3>
-                                 @endif
-							</div>
-                   
-
-                        </div>
-                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -331,28 +583,7 @@
                                 <ul class="media-list">
                                     <div class="alert alert-success" role="alert">
                                         <div class="table-responsive">
-                                            @if(isset($details))
-                                            Los Datos ingresados del estudiante : <b> {{ $query }} </b> Es :
-                                            <table class="table table-bordered table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>NOMBRE</th>
-                                                        <th>APELIDO</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    @foreach($details as $persona)
-                                                    <tr>
-                                                        <td>{{$persona-> tipo_identificacion }}</td>
-                                                        <td>{{$persona-> id }}</td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                            @elseif(isset($message))
-                                            <h3> {{$message}}</h3>
-                                            @endif
+                                            jjjjjjjjjjjjjjj
                                         </div>
 
 
@@ -372,13 +603,12 @@
     </div>
 </div>
 <!--\\\\\\\ container  end \\\\\\-->
+</div>
+</div>
 
 
 
-
-
-
-<!-- /sidebar chats -->
+<br>
 <br>
 <br>
 <br>

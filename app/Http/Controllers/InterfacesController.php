@@ -300,15 +300,30 @@ class InterfacesController extends Controller
         return view ('actualizaciones_censo.actualizacion');
     }
 
-   // actualizacion  infirmacion persona-- pasar variables de tablas //////////////////////////////
+   // actualizacion  inf0rmacion persona--  //////////////////////////////
    ///////////////////////////////////
    /////////////////////////////////////7
     public  function  actualizacion_informacion_personas ($id_persona)
     {
-        $datos = Personas::findOrFail($id_persona);
-        $datos1 = hogar::findOrFail($id_persona);
+        //$datos = Personas::findOrFail($id_persona);
+        $datos = DB:: table('Personas')
         
-        return view('actualizaciones_censo.actualizacion_informacion_persona',compact('datos','datos1'));
+      //  ->join('info_persona as com', 'educacion_superior.documento_id', '=', 'com.id')
+
+        ->join('hogar_p', 'personas.hogar_id', '=', 'hogar_p.id')
+        ->join('sector', 'hogar_p.codigo_sector', '=', 'sector.codigo_sector')
+        ->join('vereda', 'sector.codigo_vereda', '=', 'vereda.codigo_vereda')
+         ->join('zona', 'vereda.codigo_zona', '=', 'zona.codigo_zona')
+        ->join('resguardo', 'zona.codigo_resguardo', '=', 'resguardo.codigo_resguardo')
+        ->join('municipio', 'resguardo.codigo_municipio', '=', 'municipio.codigo_municipio')
+        ->join('departamento', 'municipio.codigo_departamento', '=', 'departamento.codigo_departamento')
+       
+        
+        ->where('Personas.id',$id_persona)->get();
+      //  if (count ( $datos) > 0)
+          //return view ( 'actualizaciones_censo.actualizacion',compact('Personas'))
+        
+        return view('actualizaciones_censo.actualizacion_informacion_persona',compact('datos'));
         
     }
 
@@ -347,6 +362,7 @@ class InterfacesController extends Controller
         $request->user()->authorizeRoles(['administrador']);
         return view ('actualizaciones_censo.menu_actualizacion');
     }
+
 
     public  function vista_nueva_persona_nucleo_familiar ()
     {

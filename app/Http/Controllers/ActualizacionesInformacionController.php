@@ -26,10 +26,10 @@ class ActualizacionesInformacionController extends Controller
     	->join('departamento', 'municipio.codigo_departamento', '=', 'departamento.codigo_departamento')
          ->where ('personas.docomento_persona', 'LIKE', '%' . $q . '%' )->get ();
          if (count ( $Personas) > 0)
-           return view ( 'novedad_retiro.buscar_persona_fallecido',compact('Personas'))->withDetails ( $Personas)->withQuery ( $q );
+           return view ( 'actualizaciones_censo.actualizacion',compact('Personas'))->withDetails ( $Personas)->withQuery ( $q );
            else
            
-           return view ( 'novedad_retiro.buscar_persona_fallecido' )->withMessage ( '¡La persona no se encuentra en el censo Poblaciona Misak!!' );
+           return view ( 'actualizaciones_censo.actualizacion' )->withMessage ( '¡La persona no se encuentra en el censo Poblaciona Misak!!' );
     }
 
                   
